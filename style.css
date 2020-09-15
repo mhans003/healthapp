@@ -1,0 +1,46 @@
+#navbar {
+    height: 200px; 
+    background-size: cover; 
+    background-image: url(https://images.unsplash.com/photo-1514995669114-6081e934b693?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);
+}
+
+#dark-overlay {
+    position: relative; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    background-color: rgba(0,0,0,0.5); 
+}
+
+#h1-brand {
+    color: #fff; 
+}
+
+#main {
+    margin-right: 50px; 
+    margin-left: 50px; 
+}
+
+#search-container {
+    text-align: center; 
+    margin-bottom: 30px; 
+}
+
+#page-content {
+    margin-bottom: 30px; 
+}
+
+#generated-content {
+    margin-top: 20px; 
+    text-align: center; 
+}
+
+/*Media Queries*/
+
+/*Reduce main content margin on very small screens*/
+@media screen and (max-width: 400px) {
+    #main {
+        margin-right: 10px; 
+        margin-left: 10px; 
+    }
+}
