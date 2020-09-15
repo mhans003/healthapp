@@ -7,39 +7,57 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Health App</title>
 </head>
 
-
-
 <body>
-     
-    <div class="ui pointing menu">
 
-        <div class="left menu">
-          <div class="item">
-            <div class="ui transparent icon input">
-              <input type="text" placeholder="Search...">
-              <i class="search link icon"></i>
+    <nav id="navbar" class="ui borderless inverted menu"> <!--Took fixed out-->
+        <div id="dark-overlay" class="ui container">
+            <div class="header item">
+                <a href="#"><h1 id="h1-brand" class="ui header">Project Name</h1></a>
             </div>
-          </div>
         </div>
-        <div class="menu-items">
-          <a class="item">
-            Home
-          </a>
-          <a class="item">
-            Messages
-          </a>
-          <a class="item">
-            Friends
-          </a>
-        </div>
-    </div>
-      <!-- <div class="ui segment">
-        <p></p>
-      </div> -->
+    </nav>
+    
+    <!--Main Content-->
+    <div id="main">
 
+        <!--Search Container-->
+        <div id="search-container">
+            <h1 class="ui header">Search Nearby</h1>
+            <div class="ui huge icon input">
+                <input type="text" placeholder="Search...">
+                <i class="search icon"></i>
+            </div>
+        </div>
+
+        <!--Other Page Content-->
+        <div id="page-content" class="ui two column stackable grid">
+            <div class="column">
+                <div class="ui segment">
+                    <p>(Some Page Content)</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui segment">
+                    <p>(Some Page Content)</p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!--Generated Page Content-->
+        <div id="generated-content">
+            (This will be output)
+        </div>
+
+    </div>
+    
+    
+    
 
 </body>
 
