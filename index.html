@@ -28,8 +28,13 @@
         <div id="search-container">
             <h1 class="ui header">Search Nearby</h1>
 
-            <div id="search-inputs">
-                <div id="dropdown-container">
+            <div id="search-inputs" class="ui two column stackable grid">
+                <div class="ui huge icon input column">
+                    <input type="text" placeholder="Search..." id="search-field">
+                    <button id="search-icon" class="big ui primary button">Search</button>
+                </div>
+
+                <div id="dropdown-container" class="column">
                     <div class="ui simple selection dropdown">
                         <input type="hidden" name="gender">
                         <i class="dropdown icon"></i>
@@ -38,25 +43,6 @@
                         
                         </div>
                     </div>
-                </div>
-
-                <div class="ui huge icon input" id="search-icon">
-                    <input type="text" placeholder="Search..." id="search-field">
-                    <i class="search icon"></i>
-                </div>
-            </div>
-        </div>
-
-        <!--Other Page Content-->
-        <div id="page-content" class="ui one column stackable grid">
-            <div class="column">
-                <div class="ui segment">
-                    <p>(Some Page Content)</p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="ui segment">
-                    <p>(Some Page Content)</p>
                 </div>
             </div>
         </div>

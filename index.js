@@ -88,6 +88,7 @@ var categories = [
 //Define HTML variables.
 var output = document.querySelector("#generated-content"); 
 var searchIcon = document.querySelector("#search-icon"); 
+var searchField = document.querySelector("#search-field"); 
 
 //Generate the main drop down menu.
 generateDropdown(); 
@@ -204,7 +205,7 @@ function requestYelp(event) {
     */
 
     //Add code here to see if search input was used. If so, add search keywords to the query string. 
-    console.log(event.target.value.length); 
+    console.log(searchField.value); 
 
 
 
@@ -212,8 +213,10 @@ function requestYelp(event) {
     var yelpQuery = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10`;
 
     //Checks to see if there is anything in the search input field. If so, add it to the end of the query string. 
-    if(event.target.value.length > 0) {
-        var search = event.target.value; 
+    //if(event.target.value.length > 0) 
+    if(searchField.value.length > 0) {
+        //var search = event.target.value; 
+        var search = searchField.value; 
         yelpQuery += `&term=${search}`; 
     }
 
