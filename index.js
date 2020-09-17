@@ -26,36 +26,42 @@ function locationRetrieved(position) {
     //HERE
 
     //In the meantime, call the function that makes the reqest once the coordinates load. 
-    requestZomato(); 
+    requestYelp(); 
 }
 
-function requestZomato(event) {
+function requestYelp(event) {
     //This function makes a call to the Zomato API to retrieve locations. 
 
-    //Set up the Zomato API request. 
-    var APIKEY_Zomato = `3bcad67a3e4d710dc9a409b26169eb5f`
-    var zomatoQuery = `https://developers.zomato.com/api/v2.1/geocode?lat=${latitude}&lon=${longitude}`; 
+    /*Set up the Zomato API request - Archived
+    var APIKEY_Yelp = `3bcad67a3e4d710dc9a409b26169eb5f`
+    var yelpQuery = `https://developers.zomato.com/api/v2.1/geocode?lat=${latitude}&lon=${longitude}`; 
+    
+    */
+
+   var APIKEY_Yelp = 'Qk7R-McIeM66BXlGnkM65vLQmQyOdr4RZV5uND7h_MBnXgfmfi04W5GE_O5FzhRIxuoeKsRq1U33b5J2NtMCfRvFqsQpW0hQSD00CW3NcGauIanNVqgPsxTgGm1eX3Yx';
+   var yelpQuery = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10&categories=restaurants&latitude=${latitude}&longitude=${longitude}`;
 
     //Add code here to see if search input was used. If so, add search keywords to the query string. 
 
     //Make API call. 
-    fetch(zomatoQuery, {
-        method: "GET",
+    fetch(yelpQuery, {
         headers: {
-            "user-key": APIKEY_Zomato
+            Authorization: `Bearer ${APIKEY_Yelp}`,
         }
     })
     .then(response => response.json())
     .then(res => {
         console.log(res); 
         //Generate the results to output to the user. 
-        outputResults(res); 
+        outputYelpResults(res); 
 
         //Supported Categories - fitness,restaurants 
         
         //TEST YELP API IN CONSOLE
-        var apiKey = 'Qk7R-McIeM66BXlGnkM65vLQmQyOdr4RZV5uND7h_MBnXgfmfi04W5GE_O5FzhRIxuoeKsRq1U33b5J2NtMCfRvFqsQpW0hQSD00CW3NcGauIanNVqgPsxTgGm1eX3Yx';
-        var requestUrl = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10&categories=restaurants&latitude=${latitude}&longitude=${longitude}`;
+        //var apiKey = 'Qk7R-McIeM66BXlGnkM65vLQmQyOdr4RZV5uND7h_MBnXgfmfi04W5GE_O5FzhRIxuoeKsRq1U33b5J2NtMCfRvFqsQpW0hQSD00CW3NcGauIanNVqgPsxTgGm1eX3Yx';
+        //var requestUrl = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10&categories=restaurants&latitude=${latitude}&longitude=${longitude}`;
+        
+        /*
         fetch(requestUrl, {
             headers: {
                 Authorization: `Bearer ${apiKey}`,
@@ -70,7 +76,7 @@ function requestZomato(event) {
             //Output Yelp Results
             outputYelpResults(data); 
         });
-
+        */
 
 
     }); 
@@ -153,5 +159,5 @@ function outputYelpResults(results) {
 
 //Events
 
-//someButton.addEventListener("click", requestZomato); 
+//someButton.addEventListener("click", requestYelp); 
 
