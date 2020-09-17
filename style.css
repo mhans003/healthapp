@@ -26,6 +26,27 @@
     margin-bottom: 30px; 
 }
 
+
+#search-inputs {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#search-field {
+    height: 50px;
+}
+
+#dropdown-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown {
+    margin: 4px;
+}
+
+
+
 #page-content {
     margin-bottom: 30px; 
 }

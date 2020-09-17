@@ -27,9 +27,23 @@
         <!--Search Container-->
         <div id="search-container">
             <h1 class="ui header">Search Nearby</h1>
-            <div class="ui huge icon input">
-                <input type="text" placeholder="Search...">
-                <i class="search icon"></i>
+
+            <div id="search-inputs">
+                <div id="dropdown-container">
+                    <div class="ui simple selection dropdown">
+                        <input type="hidden" name="gender">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Category</div>
+                        <div id="main-dropdown" class="menu">
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui huge icon input" id="search-icon">
+                    <input type="text" placeholder="Search..." id="search-field">
+                    <i class="search icon"></i>
+                </div>
             </div>
         </div>
 
