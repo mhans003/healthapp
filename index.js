@@ -344,7 +344,15 @@ function outputYelpResults(results) {
         var searchResult = document.createElement("div"); 
         searchResult.classList.add("column"); 
         var uiSegment = document.createElement("div"); 
-        uiSegment.classList.add("ui","segment"); 
+        uiSegment.classList.add("ui","segment","two","column","stackable","grid"); 
+
+        //Column for h2, h5, and p. 
+        var contentCol = document.createElement("div"); 
+        contentCol.classList.add("column"); 
+
+        //Column for image
+        var imageCol = document.createElement("div"); 
+        imageCol.classList.add("column"); 
 
         //Put in this search result into the uiSegment to output to the user. 
         var title = document.createElement("h2"); 
@@ -361,10 +369,21 @@ function outputYelpResults(results) {
         var priceOutput = document.createElement("p"); 
         priceOutput.innerHTML += results.businesses[thisResult].price; 
 
+        //Create image.
+        var image = document.createElement("img"); 
+        image.classList.add("ui","centered","medium","rounded","image"); 
+        image.setAttribute("src",results.businesses[thisResult].image_url);  
+
         //Append items 
-        uiSegment.append(title); 
-        uiSegment.append(keywords); 
-        uiSegment.append(priceOutput); 
+        contentCol.append(title); 
+        contentCol.append(keywords); 
+        contentCol.append(priceOutput); 
+
+        imageCol.append(image); 
+
+        uiSegment.append(imageCol); 
+        uiSegment.append(contentCol); 
+    
         searchResult.append(uiSegment); 
         output.append(searchResult);
     }
