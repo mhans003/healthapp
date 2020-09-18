@@ -369,6 +369,19 @@ function outputYelpResults(results) {
         var priceOutput = document.createElement("p"); 
         priceOutput.innerHTML += results.businesses[thisResult].price; 
 
+        //Create address output.
+        var addressOutut = document.createElement("div"); 
+        //Go through the display address array; Output one line per array element for the display address array.
+        for(let thisAddressLine = 0; thisAddressLine < results.businesses[thisResult].location.display_address.length; thisAddressLine++) {
+            var thisLine = document.createElement("div"); 
+            thisLine.innerText = results.businesses[thisResult].location.display_address[thisAddressLine]; 
+            addressOutut.append(thisLine); 
+        }
+
+        //Create phone number output.
+        var phoneOutput = document.createElement("h4"); 
+        phoneOutput.innerText = results.businesses[thisResult].display_phone; 
+        
         //Create image.
         var image = document.createElement("img"); 
         image.classList.add("ui","centered","medium","rounded","image"); 
@@ -378,6 +391,8 @@ function outputYelpResults(results) {
         contentCol.append(title); 
         contentCol.append(keywords); 
         contentCol.append(priceOutput); 
+        contentCol.append(addressOutut); 
+        contentCol.append(phoneOutput); 
 
         imageCol.append(image); 
 
