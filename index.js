@@ -85,6 +85,56 @@ var categories = [
     }
 ]; 
 
+/*CATEGORIES
+
+fitness
+nutrition 
+
+(fitness)
+gym
+yoga
+spin class
+crossfit
+interval training
+rock climbing 
+bodybuilding
+self defense 
+martial arts
+swimming
+personal training
+boot camp
+
+
+(nutrition)
+vegetarian
+vitamins and supplements
+organic
+vegan 
+diet
+meal prep
+market
+keto
+carnivore
+paleo 
+juice bar and smoothies
+
+
+(health and wellness)
+massage
+chiropractor
+physical therapy 
+spas
+meditation
+acupuncture 
+holistic
+
+
+
+
+
+*/
+
+
 //Define HTML variables.
 var output = document.querySelector("#generated-content"); 
 var searchIcon = document.querySelector("#search-icon"); 
@@ -190,25 +240,15 @@ function locationRetrieved(position) {
 
     //Add a button to the page with an event listener to pass in a request to the API using local coordinates.
     //HERE
-
-    //In the meantime, call the function that makes the reqest once the coordinates load. 
-    //requestYelp(); 
 }
 
 function requestYelp(event) {
     //This function makes a call to the Zomato API to retrieve locations. 
 
-    /*Set up the Zomato API request - Archived
-    var APIKEY_Zomato = `3bcad67a3e4d710dc9a409b26169eb5f`
-    var zomatoQuery = `https://developers.zomato.com/api/v2.1/geocode?lat=${latitude}&lon=${longitude}`; 
-    
-    */
-
     //Add code here to see if search input was used. If so, add search keywords to the query string. 
     console.log(searchField.value); 
 
-
-
+    //Set up Yelp request. 
     var APIKEY_Yelp = 'Qk7R-McIeM66BXlGnkM65vLQmQyOdr4RZV5uND7h_MBnXgfmfi04W5GE_O5FzhRIxuoeKsRq1U33b5J2NtMCfRvFqsQpW0hQSD00CW3NcGauIanNVqgPsxTgGm1eX3Yx';
     var yelpQuery = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10`;
 
@@ -243,38 +283,18 @@ function requestYelp(event) {
         return response.json();
     })
     .then(res => {
+        //Clear any search error that may be present.
+        clearError(); 
         console.log(res); 
         //Generate the results to output to the user. 
         outputYelpResults(res); 
-
-        //Supported Categories - fitness,restaurants 
-        
-        //TEST YELP API IN CONSOLE
-        //var apiKey = 'Qk7R-McIeM66BXlGnkM65vLQmQyOdr4RZV5uND7h_MBnXgfmfi04W5GE_O5FzhRIxuoeKsRq1U33b5J2NtMCfRvFqsQpW0hQSD00CW3NcGauIanNVqgPsxTgGm1eX3Yx';
-        //var requestUrl = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10&categories=restaurants&latitude=${latitude}&longitude=${longitude}`;
-        
-        /*
-        fetch(requestUrl, {
-            headers: {
-                Authorization: `Bearer ${apiKey}`,
-            },
-        })
-        .then(function (yelpResponse) {
-            return yelpResponse.json();
-        })
-        .then(function (data) {
-            console.log(data);
-
-            //Output Yelp Results
-            outputYelpResults(data); 
-        });
-        */
-
-
     })
     .catch(error => {
         //Display the error in the console.
         console.log(error); 
+
+        //Output error message. 
+        outputError(); 
 
         //Make the alternate API call - move this to function later. 
         var APIKEY_Zomato = `3bcad67a3e4d710dc9a409b26169eb5f`
@@ -325,10 +345,15 @@ function outputZomatoResults(results) {
             priceOutput.innerHTML += results.nearby_restaurants[thisResult].restaurant.currency; 
         }
 
+        //Create address output
+        var addressOutut = document.createElement("div"); 
+        addressOutut.innerText = results.nearby_restaurants[thisResult].restaurant.location.address;
+
         //Append items 
         uiSegment.append(title); 
         uiSegment.append(keywords); 
         uiSegment.append(priceOutput); 
+        uiSegment.append(addressOutut); 
         searchResult.append(uiSegment); 
         output.append(searchResult);
     }
@@ -403,6 +428,19 @@ function outputYelpResults(results) {
         output.append(searchResult);
     }
 
+}
+
+function outputError() {
+    //Output an error when Yelp request does not work. 
+    var errorDiv = document.createElement("div"); 
+    errorDiv.classList.add("ui","red","basic","label"); 
+    errorDiv.innerText = "Error with search results. Use the limited results or try again.";
+    document.getElementById("error-container").appendChild(errorDiv); 
+}
+
+function clearError() {
+    //Remove any error that may be present when Yelp request does work.
+    document.getElementById("error-container").innerHTML = ""; 
 }
 
 //Events
