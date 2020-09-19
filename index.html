@@ -34,7 +34,7 @@
                     <button id="search-icon" class="big ui primary button">Search</button>
                 </div>
 
-                <div id="dropdown-container" class="column">
+                <!--<div id="dropdown-container" class="column">
                     <div class="ui simple selection dropdown">
                         <input type="hidden" name="gender">
                         <i class="dropdown icon"></i>
@@ -43,6 +43,56 @@
                         
                         </div>
                     </div>
+                </div>-->
+
+                <!--Containers for dropdown choices and the infomation inside them-->
+                <div class="ui container">
+                    <div class="text">How would you like to reach your fitness goals today?</div>
+                    <select multiple="" name="fitness" id="fitness-select" class="ui multiple selection dropdown">
+                        <option value="" selected>Activity Type</option>
+                        <option value="gym">Gym</option>
+                        <option value="yoga">Yoga</option>
+                        <option value="spin class">Spin Class</option>
+                        <option value="crossfit">Crossfit</option>
+                        <option value="interval training">Interval Training</option>
+                        <option value="rock climbing">Rock Climbing</option>
+                        <option value="bodybuilding">Bodybuilding</option>
+                        <option value="self defense">Self Defense</option>
+                        <option value="martial arts">Martial Arts</option>
+                        <option value="swimming">Swimming</option>
+                        <option value="personal traing">Personal Training</option>
+                        <option value="boot camp">Boot Camps</option>
+                    </select>
+                </div>
+                <div class="ui container">
+                    <div class="text">Time to fuel your body. What are you looking for?</div>
+                    <select  multiple="" name="nutrition" id="nutrition-select" class="ui multiple selection dropdown">
+                        <option value="" selected>Nutrition</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vitamins and supplements">Vitamins and Supplements</option>
+                        <option value="organic">Organic</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="diet">Diet</option>
+                        <option value="meal prep">Meal Prep</option>
+                        <option value="market">Market</option>
+                        <option value="keto">Keto</option>
+                        <option value="carnivore">Carnivore</option>
+                        <option value="paleo">Paleo</option>
+                        <option value="juice bars and smoothies">Juice bars and Smoothies</option>   
+                    </select>
+                </div>
+                <div class="ui container">
+                    <div class="text">Keep your body and mind strong. How would you like to do that?</div>
+                    <select multiple="" name="health-wellness" id="health-wellness-select" class="ui multiple selection dropdown">
+                        <option value="" selected>Health/Wellness</option>
+                        <option value="massage">Massage</option>
+                        <option value="chiropractor">Chiropractor</option>
+                        <option value="physical therapy">Physical Therapy</option>
+                        <option value="spas">Spas</option>
+                        <option value="meditation">Meditation</option>
+                        <option value="acupuncture">Acupuncture</option>
+                        <option value="holistic">Holistic</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -75,8 +125,23 @@
 </style>
 
 
-<script src="index.js">
-
+<script src="index.js"></script>
+<!--Semantic UI code for initiating multiple selection dropdowns-->
+<script>
+    $('#fitness-select').dropdown({
+    maxSelections: 3
+  })
+;
+    $('#nutrition-select').dropdown({
+    maxSelections: 3
+  })
+;
+    $('#health-wellness-select').dropdown({
+    maxSelections: 3
+  })
+;
 </script>
+
+
 
 </html>
