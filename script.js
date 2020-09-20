@@ -66,9 +66,7 @@ function nutritionixApi(foods){
         url: nutriQuery,
         method: "GET"
     }).then(function(res) {
-console.log(nutriQuery);
             // adding the calories of the two inputs
-
             calorieTotal += res.hits[0].fields.nf_calories;
     nutriOutput(res);
 
@@ -80,8 +78,7 @@ console.log(nutriQuery);
 function nutriOutput(res){
 
     var output = document.querySelector('#generated-content')
-        console.log(res.hits[0]);
-    
+            
             //Create the output divs to put this search result into. 
             var nutriSearchResult = document.createElement("div"); 
             nutriSearchResult.classList.add("column"); 
