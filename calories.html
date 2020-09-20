@@ -13,6 +13,8 @@
 
 <body>
 
+
+
     <nav id="navbar" class="ui inverted menu"> <!--Took fixed out-->
         <div id="dark-overlay" class="ui container">
             <div class="header item">
@@ -29,11 +31,30 @@
 
         <!--Search Container-->
         
-    <div id="search-container" class="ui raised very padded text container segment">
-            <h2 class="ui header">Calorie Calculator</h2>
-<hr>
+
+
+    <div class="ui container" id="calorie-container">
+
+        <div id="button-container" class="row">
+            <button class ="ui button" id="clear">Clear All</button>
+            <button class ="ui button" id="save-all">Save All</button>
+            <button class ="ui button" id="add-row">Add row</button>
+        </div>
+        <div id="food-list">
+    <!-- <div class="food-input ui input focus" id="input-container0">
+                <button class="ui button delete">X</button>
+                <input type="text" id="input-row0">
+                <p id="calorie-output0"></p>
+            </div> -->
+        </div>
+        
+
+    </div>
 
         <!--Calorie Calculator-->
+        <div id="search-container" class="ui raised very padded text container segment">
+            <h2 class="ui header">Calorie Calculator</h2>
+<hr>
     <div id="generated-content" class="ui one column stackable grid">
         <p>
         <label>Female:
@@ -133,5 +154,6 @@
 </style>
 
 <script src='script.js'></script>
+<script src="counter.js"></script>
 <!-- <script src='script3.js'></script> -->
 </html>

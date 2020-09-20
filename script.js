@@ -49,7 +49,7 @@ function calsPerDay() {
 
 document.getElementById('calBtn').addEventListener('click',calsPerDay)
 
-function nutritionixApi(foods){
+/*function nutritionixApi(foods){
     //Set up the nutritionix request
     // var appID='a78c3a3d'
     // var nutriAPI='23e36dd6dd3f508d048df44067e0d944'
@@ -108,4 +108,5 @@ function nutriOutput(res){
         }
 };
 nutritionixApi();
+*/
 
