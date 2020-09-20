@@ -16,7 +16,7 @@ hr {
     background-color: rgba(0,0,0,0.5); 
 }
 
-#h1-brand {
+#h1-brand, #calorie-counter {
     color: #fff; 
 }
 
