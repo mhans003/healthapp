@@ -95,41 +95,76 @@
             calorieTotal = 0;
             for (var j = 0; j < foods.length; j++) {
                 foodInput[j].value = foods[j]
-                // api variable will go in place of foods[j]
                 // foodInput[j].nextElementSibling.textContent = "x"
+                var foodForApi = foods[j]
+                nutritionixApi(foodForApi)
             }
-            nutritionixApi(foods, foodInput);
+            // nutritionixApi(foods, foodInput);
         }
 
+
+        function nutritionixApi(foodForApi){
+            console.log(foodForApi)
+
+                // calorieTotal = 0;
+                // var nutriQuery = 'https://api.nutritionix.com/v1_1/search/'+ foodForApi +'?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=a78c3a3d&appKey=23e36dd6dd3f508d048df44067e0d944'
+                var nutriQuery = 'https://api.nutritionix.com/v1_1/search/'+ foodForApi +'?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=aa0c257f&appKey=36d2338b2c677899f5ad2f35c9ae1404'
+
+                // API call
+                $.ajax({
+                    url: nutriQuery,
+                    method: "GET"
+                }).then(function(res) {
+                    // adding the calories of the two inputs
+
+                    calorieTotal = res.hits[1].fields.nf_calories;
+                    console.log(calorieTotal)
+
+                    // console.log("Current Calorie Total: " + Math.round(calorieTotal));
+                    // foodInput.nextElementSibling.textContent = calorieTotal
+                    setCalories(calorieTotal)
+
+                });
+        }
+
+        var calorieDisplay = []
+
+        function setCalories(calorieTotal) {
+            calorieDisplay.push(calorieTotal)
+            for (var m = 0; m < foods.length; m++) {
+                foodInput[m].nextElementSibling.textContent = calorieDisplay[m];
+            }
+            // nutritionixApi(foods, foodInput);
+        }
+
+        /*
         function nutritionixApi(foods, foodInput){
             console.log(foods)
             console.log(foodInput)
         
             // for loop to input the values of the foods array into the api
             for (var m = 0; m < foods.length; m++){
-                console.log("this food item is " + foods[m])
                 // calorieTotal = 0;
                 var nutriQuery = 'https://api.nutritionix.com/v1_1/search/'+ foods[m] +'?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=a78c3a3d&appKey=23e36dd6dd3f508d048df44067e0d944'
-                    console.log(m)
-                    // foodInput[m] = input;
-                    // console.log(input)
+
                 // API call
                 $.ajax({
                     url: nutriQuery,
                     method: "GET"
                 }).then(function(res) {
-                    console.log(m)
+                    console.log(input)
                     // adding the calories of the two inputs
-                    // console.log(res.hits[1].fields.nf_calories);
 
                     calorieTotal = res.hits[1].fields.nf_calories;
+                    console.log(calorieTotal)
 
                     // console.log("Current Calorie Total: " + Math.round(calorieTotal));
-                    // foodInput.nextElementSibling.textContent = calorieTotal
+                    foodInput.nextElementSibling.textContent = calorieTotal
 
                 });
             };
         }
+        */
 
         //event listener on add row button
         addRow.addEventListener("click", function() {
