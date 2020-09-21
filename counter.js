@@ -4,6 +4,7 @@
         var addRow = document.querySelector("#add-row");
         var deleteButton = document.getElementsByClassName("delete");
         var clearButton = document.querySelector("#clear");
+        var calorieElement = document.getElementsByClassName("calorie-output")
 
         var calorieTotal = 0;
 
@@ -43,12 +44,8 @@
             calorieInput.addEventListener("keypress",saveOne);
             calorieInput.classList.add("input-field");
 
-            //Create the output that will show the calories 
-            var calorieOutput = document.createElement("p");
-
             calorieDiv.appendChild(calorieDelete);
             calorieDiv.appendChild(calorieInput); 
-            calorieDiv.appendChild(calorieOutput); 
 
             foodList.appendChild(calorieDiv); 
             
@@ -67,7 +64,7 @@
         }
 
         // stores all input fields into local storage
-        function saveAll(event) {
+        function saveAll() {
             foodInput = document.querySelectorAll(".input-field");
             localStorage.removeItem("foods");
             foods= [];
@@ -79,92 +76,66 @@
                 }
             }
             localStorage.setItem("foods", foods);
+            setFoods(foods)
         }
 
         // stores user input on enter
         function saveOne(event) {
             if(event.which === 13) {
                 event.preventDefault();
-                saveAll(event);
-                setFoods(foods);
+                saveAll();
             }
         }
 
         // loop to cycle through local storage
         function setFoods(foods) {
-            calorieTotal = 0;
             for (var j = 0; j < foods.length; j++) {
-                foodInput[j].value = foods[j]
-                // foodInput[j].nextElementSibling.textContent = "x"
-                var foodForApi = foods[j]
-                nutritionixApi(foodForApi)
+                if(calorieElement[j] !== undefined) {
+                    calorieElement[j].remove();
+                    foodInput[j].value = foods[j]
+                    var foodForApi = foods[j]
+                    nutritionixApi(foodForApi, j)
+                } else {
+                    foodInput[j].value = foods[j]
+                    var foodForApi = foods[j]
+                    nutritionixApi(foodForApi, j)
+                }
             }
-            // nutritionixApi(foods, foodInput);
         }
 
 
-        function nutritionixApi(foodForApi){
+        function nutritionixApi(foodForApi, j){
             console.log(foodForApi)
 
-                // calorieTotal = 0;
-                // var nutriQuery = 'https://api.nutritionix.com/v1_1/search/'+ foodForApi +'?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=a78c3a3d&appKey=23e36dd6dd3f508d048df44067e0d944'
-                var nutriQuery = 'https://api.nutritionix.com/v1_1/search/'+ foodForApi +'?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=aa0c257f&appKey=36d2338b2c677899f5ad2f35c9ae1404'
+            
+            var calorieOutput = document.createElement("p");
+            calorieOutput.classList.add("calorie-output");
 
-                // API call
-                $.ajax({
-                    url: nutriQuery,
-                    method: "GET"
-                }).then(function(res) {
-                    // adding the calories of the two inputs
+            document.querySelectorAll(".food-input")[j].appendChild(calorieOutput); 
+            console.log(calorieElement[j])
 
-                    calorieTotal = res.hits[1].fields.nf_calories;
-                    console.log(calorieTotal)
 
-                    // console.log("Current Calorie Total: " + Math.round(calorieTotal));
-                    // foodInput.nextElementSibling.textContent = calorieTotal
-                    setCalories(calorieTotal)
+            // var nutriQuery = 'https://api.nutritionix.com/v1_1/search/'+ foodForApi +'?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=a78c3a3d&appKey=23e36dd6dd3f508d048df44067e0d944'
+            var nutriQuery = 'https://api.nutritionix.com/v1_1/search/'+ foodForApi +'?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=aa0c257f&appKey=36d2338b2c677899f5ad2f35c9ae1404'
 
-                });
+            // API call
+            $.ajax({
+                url: nutriQuery,
+                method: "GET"
+            }).then(function(res) {
+
+                // adding the calories of the two inputs
+
+                calorieTotal = res.hits[0].fields.nf_calories;
+
+                document.querySelectorAll(".calorie-output")[j].textContent = calorieTotal;
+
+                // console.log("Current Calorie Total: " + Math.round(calorieTotal));
+                // foodInput.nextElementSibling.textContent = calorieTotal
+
+            });
+            
         }
-
-        var calorieDisplay = []
-
-        function setCalories(calorieTotal) {
-            calorieDisplay.push(calorieTotal)
-            for (var m = 0; m < foods.length; m++) {
-                foodInput[m].nextElementSibling.textContent = calorieDisplay[m];
-            }
-            // nutritionixApi(foods, foodInput);
-        }
-
-        /*
-        function nutritionixApi(foods, foodInput){
-            console.log(foods)
-            console.log(foodInput)
-        
-            // for loop to input the values of the foods array into the api
-            for (var m = 0; m < foods.length; m++){
-                // calorieTotal = 0;
-                var nutriQuery = 'https://api.nutritionix.com/v1_1/search/'+ foods[m] +'?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=a78c3a3d&appKey=23e36dd6dd3f508d048df44067e0d944'
-
-                // API call
-                $.ajax({
-                    url: nutriQuery,
-                    method: "GET"
-                }).then(function(res) {
-                    console.log(input)
-                    // adding the calories of the two inputs
-
-                    calorieTotal = res.hits[1].fields.nf_calories;
-                    console.log(calorieTotal)
-
-                    // console.log("Current Calorie Total: " + Math.round(calorieTotal));
-                    foodInput.nextElementSibling.textContent = calorieTotal
-
-                });
-            };
-        }
-        */
 
         //event listener on add row button
         addRow.addEventListener("click", function() {
