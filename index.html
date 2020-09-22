@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- jquery -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
+    <!--Semantic UI-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--Custom Styles-->
     <link rel="stylesheet" href="style.css">
-    <title>Health App</title>
+    <title>HealthApp</title>
 </head>
 
 <body>
@@ -50,7 +53,7 @@
                 </div>-->
 
                 <!--Containers for dropdown choices and the infomation inside them-->
-                <div class="ui container dropdown-menu" >
+                <div class="ui container dropdown-menu">
                     <div class="text">How would you like to reach your fitness goals today?</div>
                     <select multiple="" name="fitness" id="fitness-select" class="ui multiple selection dropdown">
                         <option value="" selected>Activity Type</option>
@@ -122,44 +125,26 @@
         </div>
 
     </div>
-    
-    
-    
 
 </body>
 
-<style>
+    <script src="index.js"></script>
+    <!--Semantic UI code for initiating multiple selection dropdowns-->
+    <script>
+        $('#fitness-select').dropdown({
+            maxSelections: 3
+        });
+        $('#nutrition-select').dropdown({
+            maxSelections: 3
+        });
+        $('#health-wellness-select').dropdown({
+            maxSelections: 3
+        });
+    </script>
 
-
-
-
-
-
-</style>
-
-
-<script src="index.js"></script>
-<!--Semantic UI code for initiating multiple selection dropdowns-->
-<script>
-    $('#fitness-select').dropdown({
-    maxSelections: 3
-  })
-;
-    $('#nutrition-select').dropdown({
-    maxSelections: 3
-  })
-;
-    $('#health-wellness-select').dropdown({
-    maxSelections: 3
-  })
-;
-</script>
-
-<!--Footer Container-->
-<div class="footer">
-    <p>HealthApp is powered by Semantic UI</p>
-  </div>
-
-
+    <!--Footer Container-->
+    <div class="footer">
+        <p>HealthApp is powered by Semantic UI</p>
+    </div>
 
 </html>

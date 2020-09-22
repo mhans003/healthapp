@@ -104,7 +104,6 @@ function constructYelpQueryString(selectTerms) {
     //Generate the request URL for the Yelp API.  
     
     var yelpQuery = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10`;
-    
 
     //Check if there is any terms selected. Get the query string ready for appending terms. 
     if (selectTerms.length > 0) {
@@ -238,24 +237,33 @@ function outputZomatoResults(results) {
 
         //Put in this search result into the uiSegment to output to the user. 
         var title = document.createElement("h2");
-        title.innerText = results.nearby_restaurants[thisResult].restaurant.name;
+        if(results.nearby_restaurants[thisResult].restaurant.name) {
+            title.innerText = results.nearby_restaurants[thisResult].restaurant.name;
+        }
 
         //Create cuisine/keyword subheading.
         var keywords = document.createElement("h5");
-        keywords.innerText = results.nearby_restaurants[thisResult].restaurant.cuisines;
+        if(results.nearby_restaurants[thisResult].restaurant.cuisines) {
+            keywords.innerText = results.nearby_restaurants[thisResult].restaurant.cuisines;
+        }
         keywords.style.color = "rgba(130,130,150,1.0)";
 
         //Create price output. 
         var priceOutput = document.createElement("p");
-        var price = results.nearby_restaurants[thisResult].restaurant.price_range;
-        for (let currencySign = 0; currencySign < price; currencySign++) {
-            priceOutput.innerHTML += results.nearby_restaurants[thisResult].restaurant.currency;
+        if(results.nearby_restaurants[thisResult].restaurant.price_range) {
+            var price = results.nearby_restaurants[thisResult].restaurant.price_range;
+
+            for (let currencySign = 0; currencySign < price; currencySign++) {
+                priceOutput.innerHTML += results.nearby_restaurants[thisResult].restaurant.currency;
+            }
         }
 
         //Create address output
         var addressOutut = document.createElement("div");
-        addressOutut.innerText = results.nearby_restaurants[thisResult].restaurant.location.address;
-
+        if(results.nearby_restaurants[thisResult].restaurant.location.address) {
+            addressOutut.innerText = results.nearby_restaurants[thisResult].restaurant.location.address;
+        }
+        
         //Append items 
         uiSegment.append(title);
         uiSegment.append(keywords);
