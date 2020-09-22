@@ -104,14 +104,15 @@ function constructYelpQueryString(selectTerms) {
     //Generate the request URL for the Yelp API.  
     
     var yelpQuery = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10`;
+    
 
     //Check if there is any terms selected. Get the query string ready for appending terms. 
-    if (searchField.value.length > 0 || selectTerms.length > 0) {
+    if (selectTerms.length > 0) {
         yelpQuery += "&term="; 
     }
 
     //See if any search terms were entered in. 
-    if (searchField.value.length > 0) {
+    /*if (searchField.value.length > 0) {
         var search = searchField.value;
         yelpQuery += search;
 
@@ -119,7 +120,7 @@ function constructYelpQueryString(selectTerms) {
         if(selectTerms.length > 0) {
             yelpQuery += " "; 
         }
-    }
+    }*/
 
     //See if dropdown items were selected and add them to the query string. 
     if (selectTerms.length > 0) {

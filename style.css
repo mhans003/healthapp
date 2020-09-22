@@ -1,6 +1,14 @@
+* {
+    font-family: 'Montserrat', sans-serif !important;
+}
+body {
+    background-color:rgb(235,245,240);
+}
+
 hr {
     margin-top: 20px; 
 }
+
 
 #navbar {
     height: 200px; 
@@ -30,6 +38,10 @@ hr {
     margin-bottom: 30px; 
 }
 
+#search-header {
+    margin-bottom:40px;
+}
+
 
 #search-inputs {
     display: flex;
@@ -45,9 +57,18 @@ hr {
     flex-direction: column;
 }
 
+.dropdown-menu {
+    margin-bottom: -90px;
+}
+
 .dropdown {
     margin-bottom: 110px;
 
+}
+
+#search-button {
+    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 #page-content {
@@ -58,6 +79,21 @@ hr {
     margin-top: 20px; 
     text-align: center; 
 }
+
+.footer {
+    position: fixed;
+    height: 120px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(70,70,70);
+    color: white;
+    text-align: center;
+    line-height: 50px;
+  }
+
+ 
+
 
 /*Media Queries*/
 
