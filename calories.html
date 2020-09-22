@@ -31,20 +31,25 @@
         <div class="ui raised very padded text container segment" id="calorie-container">
             <h2 class="ui header center aligned">My Food List</h2>
             <hr>
-            <div id="button-container" class="ui three column stackable grid">
+            <div id="button-container" class="ui four column grid">
                 <div class="center aligned column">
-                    <button class="ui button" id="clear">Clear All</button>
+                    <button class="ui button top-button" id="clear">Clear All</button>
                 </div>
                 <div class="center aligned column">
-                    <button class="ui button" id="save-all">Save All</button>
+                    <button class="ui button top-button" id="save-all">Save All</button>
                 </div>
                 <div class="center aligned column">
-                    <button class="ui button" id="add-row">Add row</button>
+                    <button class="ui button top-button" id="add-row">Add row</button>
+                </div>
+                <div class="center aligned column">
+                    <p class="ui">Calories</p>
                 </div>
             </div>
             <div id="food-list" class="ui one column stackable grid padded">
                 
             </div>
+
+            <div id="total-count">Total = 0</div>
     
         </div>
 
@@ -105,11 +110,13 @@
 
                 <div class="ui column">
                     <label for="bmr">Basic Metabolic Rate (kcal/day):</label>
+                    <br>
                     <span id="bmr"></span>
                 </div>
             
                 <div class="ui column">
                     <label for="bmr">Calories Needed (Maintain Weight):</label>
+                    <br>
                     <span id="totalCals"></span>
                 </div>
                 
