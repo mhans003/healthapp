@@ -122,7 +122,7 @@
                 method: "GET"
             }).then(function(res) {
 
-                var calorieTotal = res.hits[0].fields.nf_calories;
+                calorieTotal = res.hits[0].fields.nf_calories;
                 totalCount += res.hits[0].fields.nf_calories;
 
                 document.querySelectorAll(".calorie-output")[j].textContent = Math.round(calorieTotal);
