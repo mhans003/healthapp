@@ -1,14 +1,14 @@
-* {
-    font-family: 'Montserrat', sans-serif !important;
-}
 body {
     background-color:rgb(235,245,240);
+}
+
+body, h1, h2, h3, h4, h5, h6, button {
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 hr {
     margin-top: 20px; 
 }
-
 
 #navbar {
     height: 200px; 
@@ -31,6 +31,7 @@ hr {
 #main {
     margin-right: 50px; 
     margin-left: 50px; 
+    margin-bottom: 50px; 
 }
 
 #search-container {
@@ -41,7 +42,6 @@ hr {
 #search-header {
     margin-bottom:40px;
 }
-
 
 #search-inputs {
     display: flex;
@@ -78,11 +78,12 @@ hr {
 #generated-content {
     margin-top: 20px; 
     text-align: center; 
+    margin-bottom: 100px; 
 }
 
-.footer {
+.footer { 
     position: fixed;
-    height: 120px;
+    height: 90px;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -90,10 +91,7 @@ hr {
     color: white;
     text-align: center;
     line-height: 50px;
-  }
-
- 
-
+}
 
 /*Media Queries*/
 
@@ -102,5 +100,9 @@ hr {
     #main {
         margin-right: 10px; 
         margin-left: 10px; 
+    }
+
+    #h1-brand, #calorie-counter {
+        font-size: 1.2rem; 
     }
 }
