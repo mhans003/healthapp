@@ -7,6 +7,7 @@
         var calorieElement = document.getElementsByClassName("calorie-output")
 
         var calorieTotal = 0;
+        var totalCount = 0;
 
         var foods = [];
 
@@ -65,6 +66,7 @@
 
         // stores all input fields into local storage
         function saveAll() {
+            totalCount = 0;
             foodInput = document.querySelectorAll(".input-field");
             localStorage.removeItem("foods");
             foods= [];
@@ -103,17 +105,13 @@
             }
         }
 
-
+        // api call function for calorie data
         function nutritionixApi(foodForApi, j){
-            console.log(foodForApi)
-
             
             var calorieOutput = document.createElement("p");
             calorieOutput.classList.add("calorie-output");
 
             document.querySelectorAll(".food-input")[j].appendChild(calorieOutput); 
-            console.log(calorieElement[j])
-
 
             // var nutriQuery = 'https://api.nutritionix.com/v1_1/search/'+ foodForApi +'?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=a78c3a3d&appKey=23e36dd6dd3f508d048df44067e0d944'
             var nutriQuery = 'https://api.nutritionix.com/v1_1/search/'+ foodForApi +'?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=aa0c257f&appKey=36d2338b2c677899f5ad2f35c9ae1404'
@@ -124,11 +122,12 @@
                 method: "GET"
             }).then(function(res) {
 
-                // adding the calories of the two inputs
-
                 calorieTotal = res.hits[0].fields.nf_calories;
+                totalCount += res.hits[0].fields.nf_calories;
 
-                document.querySelectorAll(".calorie-output")[j].textContent = calorieTotal;
+                document.querySelectorAll(".calorie-output")[j].textContent = Math.round(calorieTotal);
+
+                document.querySelector("#total-count").textContent = "Total = " + Math.round(totalCount);
 
                 // console.log("Current Calorie Total: " + Math.round(calorieTotal));
                 // foodInput.nextElementSibling.textContent = calorieTotal
@@ -136,6 +135,8 @@
             });
             
         }
+
+        
 
         //event listener on add row button
         addRow.addEventListener("click", function() {
@@ -152,8 +153,8 @@
         //event listener on save all button
         document.getElementById("save-all").addEventListener("click", function () {
             saveAll();
-            setFoods(foods);
         })
 
 
         pullLocalFoods();
+
