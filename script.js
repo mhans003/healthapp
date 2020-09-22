@@ -43,7 +43,7 @@ function calsPerDay() {
     }
 
     console.log(result);
-    find("totalCals").innerHTML='You need '+Math.round(result)+' calories to maintain current weight.'
+    find("totalCals").innerHTML=+Math.round(result)
 
 }
 
