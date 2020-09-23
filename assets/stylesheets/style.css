@@ -83,6 +83,21 @@ hr {
 
 .calorie-output {
     padding: 10px 20px 0 40px;
+    color: rgba(120,120,120,1.0); 
+    font-size: 0.8rem; 
+}
+
+.button-icon {
+    padding: 5px; 
+}
+
+#button-container {
+    margin-bottom: 10px; 
+}
+
+.food-input {
+    margin-bottom: 10px; 
+    margin-top: 10px; 
 }
 
 #total-count {
