@@ -35,7 +35,7 @@ function addContainer() {
 
     //Create the delete button. 
     var calorieDelete = document.createElement("button");
-    calorieDelete.classList.add("ui", "button", "delete");
+    calorieDelete.classList.add("ui", "button", "mini", "delete");
     // calorieDelete.textContent = "X"; 
     calorieDelete.innerHTML = '<i class="fas fa-trash-alt"></i>';
     calorieDelete.addEventListener("click",deleteRow);
