@@ -84,7 +84,7 @@ hr {
 .calorie-output {
     padding: 10px 20px 0 40px;
     color: rgba(120,120,120,1.0); 
-    font-size: 0.8rem; 
+    font-size: 1rem; 
 }
 
 .button-icon {
@@ -121,6 +121,38 @@ hr {
 /*Media Queries*/
 
 /*Reduce main content margin on very small screens*/
+@media screen and (max-width: 620px) {
+    .delete {
+        width: 20px;
+    }
+
+    .input-field {
+        font-size: 10px;
+    }
+
+    .calorie-output {
+        padding: 10px 0 10px 5px;
+        font-size: 0.8rem; 
+    }
+
+    #total-count {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .input-field {
+        width: 110px;
+        font-size: 10px;
+    }
+
+    .calorie-output {
+        font-size: 0.6rem;
+    }
+
+}
+
 @media screen and (max-width: 400px) {
     #main {
         margin-right: 10px; 
@@ -129,5 +161,20 @@ hr {
 
     #h1-brand, #calorie-counter {
         font-size: 1.2rem; 
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .input-field {
+        font-size: 0.6rem;
+        width: 90px;
+    }
+
+    .calorie-output {
+        font-size: 0.6rem;
+    }
+
+    #total-count {
+        font-size: 0.8rem;
     }
 }
