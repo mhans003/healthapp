@@ -33,11 +33,17 @@ function addContainer() {
     var calorieDiv = document.createElement("div");
     calorieDiv.classList.add("food-input", "ui", "input", "focus", "row");
 
-    //Create the delete button. 
+    /*
     var calorieDelete = document.createElement("button");
     calorieDelete.classList.add("ui", "button", "mini", "delete");
-    // calorieDelete.textContent = "X"; 
-    calorieDelete.innerHTML = '<i class="fas fa-trash-alt"></i>';
+    calorieDelete.textContent = "X"; 
+    // calorieDelete.innerHTML = '<i class="fas fa-trash-alt"></i>';
+    calorieDelete.addEventListener("click",deleteRow);
+    */
+
+    //Create the delete button.
+    var calorieDelete = document.createElement("i");
+    calorieDelete.classList.add("ui", "mini", "delete", "fas",  "fa-trash-alt");
     calorieDelete.addEventListener("click",deleteRow);
 
     //Create the input for the food item. 

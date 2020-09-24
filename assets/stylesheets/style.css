@@ -95,6 +95,11 @@ hr {
     margin-bottom: 10px; 
 }
 
+.delete {
+    padding: 14px 5px 0 0;
+    color: rgba(120,120,120,1.0);
+}
+
 .food-input {
     margin-bottom: 10px; 
     margin-top: 10px; 
@@ -123,8 +128,9 @@ hr {
 /*Reduce main content margin on very small screens*/
 @media screen and (max-width: 620px) {
     .delete {
-        width: 20px;
-    }
+        padding: 12px 5px 0 0;
+        font-size: 0.8rem;
+    } 
 
     .input-field {
         font-size: 10px;
@@ -168,10 +174,6 @@ hr {
     .input-field {
         font-size: 0.6rem;
         width: 90px;
-    }
-
-    .calorie-output {
-        font-size: 0.6rem;
     }
 
     #total-count {
