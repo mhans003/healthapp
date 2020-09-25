@@ -1,5 +1,5 @@
 body {
-    background-color:rgb(235,245,240);
+    background-color:rgb(245,254,250);
 }
 
 body, h1, h2, h3, h4, h5, h6, button, label, input {
@@ -7,7 +7,7 @@ body, h1, h2, h3, h4, h5, h6, button, label, input {
 }
 
 hr {
-    margin-top: 20px; 
+    display: none; 
 }
 
 #navbar {
@@ -63,7 +63,11 @@ hr {
 
 .dropdown {
     margin-bottom: 110px;
+}
 
+.search-text {
+    font-size: 1.2rem; 
+    margin-bottom: 5px; 
 }
 
 #search-button {
@@ -73,6 +77,10 @@ hr {
 
 #page-content {
     margin-bottom: 30px; 
+}
+
+#error-container {
+    margin-top: 5px; 
 }
 
 #generated-content {
@@ -117,15 +125,35 @@ hr {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgb(70,70,70);
+    background-color: rgb(90,90,90);
     color: white;
     text-align: center;
-    line-height: 50px;
+}
+
+.footer p {
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.footer-icons {
+    margin-top: -15px; 
+}
+
+.footer-icons i {
+    margin-right: 15px; 
+    margin-left: 15px; 
 }
 
 /*Media Queries*/
 
 /*Reduce main content margin on very small screens*/
+
+@media screen and (max-width: 767px) {
+    hr {
+        display: block; 
+    }
+}
+
 @media screen and (max-width: 620px) {
     .delete {
         padding: 12px 5px 0 0;
