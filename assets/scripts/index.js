@@ -104,6 +104,7 @@ function constructYelpQueryString(selectTerms) {
     //Generate the request URL for the Yelp API.  
     
     var yelpQuery = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10`;
+    //var yelpQuery = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/busisdfasdfnesses/search?limit=10`;
 
     //Check if there is any terms selected. Get the query string ready for appending terms. 
     if (selectTerms.length > 0) {
@@ -276,15 +277,24 @@ function outputZomatoResults(results) {
 
 function outputError() {
     //Output an error when Yelp request does not work. 
+    var errorContainer = document.createElement("div"); 
+    errorContainer.setAttribute("id","error-container"); 
+    errorContainer.classList.add("ui","one","column","centered","grid"); 
+
+    document.getElementById("generated-content-container").prepend(errorContainer); 
+
     var errorDiv = document.createElement("div");
     errorDiv.classList.add("ui", "red", "basic", "label");
     errorDiv.innerText = "Error with search results. Use the limited results with restaurants only or try again.";
+
     document.getElementById("error-container").appendChild(errorDiv);
 }
 
 function clearError() {
     //Remove any error that may be present when Yelp request does work.
-    document.getElementById("error-container").innerHTML = "";
+    if(document.getElementById("error-container")) {
+        document.getElementById("error-container").innerHTML = "";
+    }
 }
 
 //EVENTS
