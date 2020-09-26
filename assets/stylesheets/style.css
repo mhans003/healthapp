@@ -89,6 +89,11 @@ hr {
     margin-bottom: 150px; 
 }
 
+#calorie-container {
+    margin-top: 14px;
+    margin-bottom: 30px;
+}
+
 .calorie-output {
     padding: 10px 20px 0 40px;
     color: rgba(120,120,120,1.0); 
