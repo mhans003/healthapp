@@ -34,6 +34,12 @@ hr {
     margin-bottom: 50px; 
 }
 
+#main-calorie {
+    margin-right: 50px; 
+    margin-left: 50px; 
+    margin-bottom: 50px; 
+}
+
 #search-container {
     text-align: center; 
     margin-bottom: 30px; 
@@ -90,8 +96,12 @@ hr {
 }
 
 #calorie-container {
-    margin-top: 14px;
+    /*margin-top: 14px;*/
     margin-bottom: 30px;
+}
+
+#calorie-calculator {
+    text-align: center; 
 }
 
 .calorie-output {
