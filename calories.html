@@ -31,121 +31,124 @@
     </nav>
     
     <!--Main Content-->
-    <div id="main" class="ui two column stackable grid">
+    <div id="main-calorie" class="ui two column stackable grid">
 
-        <!--Search Container-->
-        <div class="ui raised very padded text container segment" id="calorie-container">
-            <h2 class="ui header center aligned">My Food List <i class="fab fa-nutritionix"></i></h2>
-            <hr>
-            <div id="button-container" class="ui three column grid">
-                <div class="center aligned column">
-                    <button class="ui mini negative basic button top-button" id="clear">Clear All<br><br>
-                        <span class="button-icon">
-                            <i class="fas fa-trash-alt"></i>
-                        </span>
-                    </button>
+        <div class="column">
+            <!--Search Container-->
+            <div class="ui raised very padded text segment" id="calorie-container">
+                <h2 class="ui header center aligned">My Food List <i class="fab fa-nutritionix"></i></h2>
+                <hr>
+                <div id="button-container" class="ui three column grid">
+                    <div class="center aligned column">
+                        <button class="ui mini negative basic button top-button" id="clear">Clear All<br><br>
+                            <span class="button-icon">
+                                <i class="fas fa-trash-alt"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="center aligned column">
+                        <button class="ui mini positive basic button top-button" id="save-all">Save All<br><br>
+                            <span class="button-icon">
+                                <i class="fas fa-save"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="center aligned column">
+                        <button class="ui mini secondary basic button top-button" id="add-row">Add Row<br><br>
+                            <span class="button-icon">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </button>
+                    </div>
                 </div>
-                <div class="center aligned column">
-                    <button class="ui mini positive basic button top-button" id="save-all">Save All<br><br>
-                        <span class="button-icon">
-                            <i class="fas fa-save"></i>
-                        </span>
-                    </button>
+                <div id="food-list" class="ui two column stackable grid padded">
+                    
                 </div>
-                <div class="center aligned column">
-                    <button class="ui mini secondary basic button top-button" id="add-row">Add Row<br><br>
-                        <span class="button-icon">
-                            <i class="fas fa-plus"></i>
-                        </span>
-                    </button>
-                </div>
-            </div>
-            <div id="food-list" class="ui two column stackable grid padded">
-                
-            </div>
 
-            <div id="total-count">Total = 0</div>
-    
+                <div id="total-count">Total = 0</div>
+        
+            </div>
         </div>
 
-        <!--Calorie Calculator-->
-        <div id="search-container" class="ui raised very padded text container segment">
-            <h2 class="ui header center aligned">Calorie Calculator <i class="fad fa-calculator"></i></h2>
-            <hr>
-            <div id="generated-content" class="ui one column stackable grid">
-                <h4 class="ui header column">Your Information:</h4>
-                <div class="ui mini input column">
-                    <label for="female">Female:</label>
-                    <input id="female" type="radio" name="gender">
-                    <label for="male">Male:</label>
-                    <input id="male" type="radio" name="gender">
-                </div>
+        <div class="column">
+            <!--Calorie Calculator-->
+            <div id="calorie-calculator" class="ui raised very padded text segment">
+                <h2 class="ui header center aligned">Calorie Calculator <i class="fad fa-calculator"></i></h2>
+                <hr>
+                <div class="ui one column stackable grid">
+                    <h4 class="ui header column">Your Information:</h4>
+                    <div class="ui mini input column">
+                        <label for="female">Female:</label>
+                        <input id="female" type="radio" name="gender">
+                        <label for="male">Male:</label>
+                        <input id="male" type="radio" name="gender">
+                    </div>
 
-                <div class="ui mini input column">
-                    <label for="age">Age (Years):</label>
-                    <input id="age" type="number">
-                </div>
+                    <div class="ui mini input column">
+                        <label for="age">Age (Years):</label>
+                        <input id="age" type="number">
+                    </div>
+                    
+                    <div class="ui mini input column">
+                        <label for="heightFt">Height (Feet):</label>
+                        <input id="heightFt" type="number">
+                    </div>
+
+                    <div class="ui mini input column">
+                        <label for="heightIn">Height (Inches):</label>
+                        <input id="heightIn" type="number">
+                    </div>
                 
-                <div class="ui mini input column">
-                    <label for="heightFt">Height (Feet):</label>
-                    <input id="heightFt" type="number">
-                </div>
+                    <div class="ui mini input column">
+                        <label for="weight">Weight (lbs):</label>
+                        <input id="weight" type="number">
+                    </div>
 
-                <div class="ui mini input column">
-                    <label for="heightIn">Height (Inches):</label>
-                    <input id="heightIn" type="number">
-                </div>
-            
-                <div class="ui mini input column">
-                    <label for="weight">Weight (lbs):</label>
-                    <input id="weight" type="number">
-                </div>
+                    <h4 class="ui header column">Average Activity:</h4>
+                    
+                    <div class="ui mini input column">
+                        <label for="sedentary">Sedentary (little/no exercise)</label>
+                        <input id="sedentary" type="radio" name="activity-group">
+                    </div>
 
-                <h4 class="ui header column">Average Activity:</h4>
+                    <div class="ui mini input column">
+                        <label for="light">Light (exercise 1-3 times per week)</label>
+                        <input id="light" type="radio" name="activity-group">
+                    </div>
+
+                    <div class="ui mini input column">
+                        <label for="moderate">Moderate (exercise 4-5 times per week)</label>
+                        <input id="moderate" type="radio" name="activity-group">
+                    </div>
+
+                    <div class="ui mini input column">
+                        <label for="heavy">Heavy (exercise 6-7 times per week)</label>
+                        <input id="heavy" type="radio" name="activity-group">
+                    </div>
                 
-                <div class="ui mini input column">
-                    <label for="sedentary">Sedentary (little/no exercise)</label>
-                    <input id="sedentary" type="radio" name="activity-group">
-                </div>
-
-                <div class="ui mini input column">
-                    <label for="light">Light (exercise 1-3 times per week)</label>
-                    <input id="light" type="radio" name="activity-group">
-                </div>
-
-                <div class="ui mini input column">
-                    <label for="moderate">Moderate (exercise 4-5 times per week)</label>
-                    <input id="moderate" type="radio" name="activity-group">
-                </div>
-
-                <div class="ui mini input column">
-                    <label for="heavy">Heavy (exercise 6-7 times per week)</label>
-                    <input id="heavy" type="radio" name="activity-group">
-                </div>
-            
-                <div class="ui column">
-                    <label>Basic Metabolic Rate (kcal/day):</label>
-                    <br>
-                    <span id="bmr"></span>
-                </div>
-            
-                <div class="ui column">
-                    <label>Calories Needed (Maintain Weight):</label>
-                    <br>
-                    <span id="totalCals"></span> 
-                    <br>
-                    *If goal is to lose weight, calorie intake should be approximately 500 calories below recommended.
-                    If goal is to gain weight, calorie intake should be approximately 500 calories above recommended.
-                </div>
+                    <div class="ui column">
+                        <label>Basic Metabolic Rate (kcal/day):</label>
+                        <br>
+                        <span id="bmr"></span>
+                    </div>
                 
-                <div class="ui column">
-                    <button class="big ui primary button" id='calBtn'>Calculate</button>
+                    <div class="ui column">
+                        <label>Calories Needed (Maintain Weight):</label>
+                        <br>
+                        <span id="totalCals"></span> 
+                        <br>
+                        *If goal is to lose weight, calorie intake should be approximately 500 calories below recommended.
+                        If goal is to gain weight, calorie intake should be approximately 500 calories above recommended.
+                    </div>
+                    
+                    <div class="ui column">
+                        <button class="big ui primary button" id='calBtn'>Calculate</button>
+                    </div>
+
                 </div>
 
             </div>
-
         </div>
-
     </div>
 
     <!--Footer Container-->
