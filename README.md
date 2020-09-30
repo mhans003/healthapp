@@ -28,3 +28,7 @@ SO THAT I reach my personal health goals
 * Incorporates Semantic UI utilities including multiple dropdowns, containers, and inputs.
 * Makes calls to 3 APIs, including Yelp, Zomato, and Nutritionix.
 * Stores the user's food input in the browser's local storage. 
+
+### License 
+
+Licensed under the [MIT License](./LICENSE.txt).
