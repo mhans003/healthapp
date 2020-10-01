@@ -1,13 +1,13 @@
 # HealthApp
 
-### Deployed Application 
+## Deployed Application 
 
 [HealthApp](https://mhans003.github.io/healthapp/index.html)
 
 ![Screenshot of HealthApp](./assets/images/healthapp.jpg)
 ![Screenshot of HealthApp](./assets/images/healthapp2.jpg)
 
-### Description 
+## Description 
 
 This application allows a user to search for local health-oriented business based on individual needs and goals. 
 
@@ -15,7 +15,7 @@ The user is prompted to select several categories that pertain to their health i
 
 The program ensures that when the Yelp API does not respond as desired to a request, the Zomato API intervenes and retrieves a set of limited results. The Nutritionix API retrieves specific calorie information about food inputs. The page automatically locates the user's current location and searches the local area for relevant businesses. 
 
-### User Story
+## User Story
 
 AS AN Aspiring Health Enthusiast 
 
@@ -23,13 +23,35 @@ I WANT to find local health oriented businesses
 
 SO THAT I reach my personal health goals
 
-### Features
+## Features
 
 * Responsive to screen sizes across devices. 
 * Incorporates Semantic UI utilities including multiple dropdowns, containers, and inputs.
 * Makes calls to 3 APIs, including Yelp, Zomato, and Nutritionix.
 * Stores the user's food input in the browser's local storage. 
 
-### License 
+## Credits
+
+Michael Hanson
+* michaeledwardhanson@gmail.com
+* [GitHub](https://github.com/mhans003)
+* [LinkedIn](https://www.linkedin.com/in/michaeledwardhanson/)
+
+Alejandra Reyes
+* areye022@gmail.com
+* [GitHub](https://github.com/areye022)
+* [LinkedIn](https://www.linkedin.com/in/alejandrareyes022/)
+
+Curtis Jackson
+* hitmancjack@yahoo.com
+* [GitHub](https://github.com/CJack74)
+* [LinkedIn](https://www.linkedin.com/in/curtis-jackson-48821a1b3/)
+
+Taylor Niles
+* tniles320@gmail.com
+* [GitHub](https://github.com/tniles320)
+* [LinkedIn](https://www.linkedin.com/in/taylor-niles-710b311b1/)
+
+## License 
 
 Licensed under the [MIT License](./LICENSE.txt).
