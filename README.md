@@ -5,6 +5,7 @@
 [HealthApp](https://mhans003.github.io/healthapp/index.html)
 
 ![Screenshot of HealthApp](./assets/images/healthapp.jpg)
+![Screenshot of HealthApp](./assets/images/healthapp2.jpg)
 
 ### Description 
 
