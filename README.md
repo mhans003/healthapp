@@ -45,12 +45,12 @@ Alejandra Reyes
 Curtis Jackson
 * hitmancjack@yahoo.com
 * [GitHub](https://github.com/CJack74)
-* [LinkedIn](https://www.linkedin.com/in/curtis-jackson-48821a1b3/)
+* [LinkedIn](https://www.linkedin.com/in/cjackson74/)
 
 Taylor Niles
 * tniles320@gmail.com
 * [GitHub](https://github.com/tniles320)
-* [LinkedIn](https://www.linkedin.com/in/taylor-niles-710b311b1/)
+* [LinkedIn](https://www.linkedin.com/in/taylorniles117/)
 
 ## License 
 
